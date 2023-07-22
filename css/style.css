@@ -1,0 +1,217 @@
+:root{
+    --black: #000;
+    /* Color styles */
+--primary---primaty_100: rgba(237, 252, 247, 1);
+--primary---primaty_200: rgba(224, 250, 240, 1);
+--primary---primaty_300: rgba(215, 249, 236, 1);
+--primary---primaty_400: rgba(206, 248, 232, 1);
+--primary---primary_500: rgba(195, 246, 227, 1);
+--primary---primaty_600: rgba(149, 239, 205, 1);
+--primary---primaty_700: rgba(104, 232, 185, 1);
+--primary---primaty_800: rgba(60, 226, 164, 1);
+--primary---primaty_900: rgba(31, 204, 139, 1);
+--secondary---secondary_100: rgba(255, 214, 229, 1);
+--secondary---secondary_200: rgba(255, 199, 219, 1);
+--secondary---secondary_300: rgba(255, 189, 213, 1);
+--secondary---secondary_400: rgba(255, 173, 203, 1);
+--secondary---secondary_500: rgba(255, 165, 198, 1);
+--secondary---secondary_600: rgba(255, 112, 164, 1);
+--secondary---secondary_700: rgba(255, 76, 142, 1);
+--secondary---secondary_800: rgba(255, 25, 110, 1);
+--secondary---secondary_900: rgba(214, 0, 79, 1);
+--tertiary--tertiary_100: rgba(255, 250, 235, 1);
+--tertiary--tertiary_200: rgba(255, 252, 224, 1);
+--tertiary--tertiary_300: rgba(255, 250, 209, 1);
+--tertiary--tertiary_400: rgba(255, 250, 199, 1);
+--tertiary--tertiary_500: rgba(255, 248, 182, 1);
+--tertiary--tertiary_600: rgba(255, 243, 132, 1);
+--tertiary--tertiary_700: rgba(255, 238, 82, 1);
+--tertiary--tertiary_800: rgba(255, 233, 31, 1);
+--tertiary--tertiary_900: rgba(235, 212, 0, 1);
+--shades---shade_50: rgba(244, 247, 250, 1);
+--shades---shade_75: rgba(231, 237, 243, 1);
+--shades---shade_100: rgba(225, 229, 234, 1);
+--shades---shade_200: rgba(195, 202, 213, 1);
+--shades---shade_300: rgba(165, 176, 192, 1);
+--shades---shade_400: rgba(135, 150, 171, 1);
+--shades---shade_500: rgba(105, 124, 150, 1);
+--shades---shade_600: rgba(88, 105, 126, 1);
+--shades---shade_700: rgba(57, 67, 81, 1);
+--shades---shade_800: rgba(57, 67, 81, 1);
+--shades---shade_900: rgba(42, 50, 60, 1);
+
+/* Text-size styles */
+--roboto---roboto_12px: 12px;
+--roboto---robot_14px: 14px;
+--roboto---roboto_16px: 16px;
+--roboto---roboto_18px: 18px;
+--roboto---roboto_20px: 20px;
+--roboto---roboto_24px: 24px;
+--roboto---roboto_30px: 30px;
+--roboto---roboto_36px: 36px;
+--roboto---roboto_48px: 48px;
+--roboto---roboto_60px: 60px;
+--roboto---roboto_72px: 72px;
+--nunito---nunito_36px: 36px;
+--nunito---nunito_48px: 48px;
+--nunito---nunito_60px: 60px;
+--nunito---nunito_72px: 72px;
+--nunito---nunito_72_-bold: 72px;
+
+/* Effect styles */
+--drop_shadow_small:  0px 1px 3px rgba(31, 45, 61, 0.5);
+--drop_shadow_medium:  0px 4px 6px rgba(31, 45, 61, 0.5);
+}
+
+
+body {
+  
+    list-style-type: none;
+    list-style: none
+}
+
+/** Header and Menu desktop and mobile **/
+
+.header__menu--items{
+    
+}
+
+.header__logo{
+    display:flex;
+}
+.is-open{
+    display:block;
+}
+
+
+.is-closed{
+    display: none;
+    outline: solid  1px red;
+}
+
+.menu-hamburger:hover{
+    cursor: pointer;
+}
+
+#landing-section{
+    width:1200px;
+    min-height: 500px;
+    margin: auto;
+}
+
+.bg{
+    width: 100vw;
+}
+
+#primary-menu > li {
+    margin: 0 1rem;
+}
+
+#primary-menu > li a {
+    text-decoration: none;
+    color:  var(--shades---shade_900);
+    font-weight: 600;
+}
+
+.landing-section{
+    margin-top: -76px;
+}
+.landing-section__image{
+    width: 50%;
+    margin-left: auto;
+    margin-right: 0;
+
+}
+
+.dog{
+    object-fit: cover;
+}
+
+.landing-section__heading{
+    font-size: var(--roboto---roboto_48px);
+}
+
+.bg-dog {
+    background-image: url('../assets/images/background-dogs.svg');
+}
+
+.container-gallery{
+    max-width: 1200px;
+}
+
+.gallery-item {
+    width: 300px!important;
+    height: 300px;
+}
+.about-us{
+    font-size: var(--roboto---roboto_16px) ;
+}
+.image-about-us > img{
+    height: 500px !important;
+    margin:auto;    
+}
+
+.about-us__tex{
+    text-align: justify !important;
+}
+
+
+
+/* Services */
+.toggle-service{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+
+
+.arrow{
+    width:15px;
+    height: 15px;
+    border:none;
+} 
+
+.up-arrow{
+
+}  
+
+.down-arrow{
+    transform: rotate(180deg);
+}
+
+.dots{
+    border-bottom: dotted 1px;
+    margin: 5px 2px;
+}
+
+.card {
+    background-color: #D9D9D9;
+}
+
+.label-prices-mini-cart{
+    font-weight: 700;
+
+}
+
+.container-social-media > img {
+    width : 30px;
+    height: 30px;
+    margin: 0 1rem;
+}
+
+.footer__container--info, .footer__container--info > a{
+    color: black;
+    font-size: 1rem;
+}
+
+
+/* POP UP */
+.bg-popup {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: bisque;
+}
+
