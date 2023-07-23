@@ -1,5 +1,3 @@
-console.log("Hello , we are available");
-
 function toggleService() {
   const toggleServiceContainer = document.querySelector(
     ".toggle-service__container"
@@ -58,8 +56,6 @@ window.addEventListener("load", () => {
     });
   });
 
-  
-
   optionsServiceDetails = document.querySelectorAll(".service-details");
   optionsServiceDetails.forEach(function (el) {
     el.addEventListener("change", function () {
@@ -86,77 +82,77 @@ window.addEventListener("load", () => {
       }
       totalPriceAdditionalService = 0;
 
-      totalPriceAdditionalService = Array.from(formAdditionalData.entries()).reduce(
-        (acc, currentValue) => Number(acc) + Number(currentValue[1]),
-        0
-      );
-      totalPriceService(totalPriceOptionService, totalPriceAdditionalService)
+      totalPriceAdditionalService = Array.from(
+        formAdditionalData.entries()
+      ).reduce((acc, currentValue) => Number(acc) + Number(currentValue[1]), 0);
+      totalPriceService(totalPriceOptionService, totalPriceAdditionalService);
     });
   });
 });
 
-
-
-
 function totalPriceService(priceOptionsService, priceAdditionalService) {
   var total = priceOptionsService + priceAdditionalService;
-  totalPrice = total
+  totalPrice = total;
   document.querySelector(".total-price").innerHTML = total;
 }
 
 
 
-async function sendForm(){
+async function sendForm() {
   const formDetails = document.getElementById("form-details");
   const formDetailslData = new FormData(formDetails);
+  const OptionalService = Array.from(formDetailslData.entries()).map(
+    ([key, value]) => {
+      return {
+        name: key,
+        value,
+      };
+    }
+  );
 
   const formAdditional = document.getElementById("form-additional");
   const formAdditionalData = new FormData(formAdditional);
-  const additionalService = Array.from(formAdditionalData.entries()).map(([key, value]) => {
-    return {
-      name: key,
-      value
+  const additionalService = Array.from(formAdditionalData.entries()).map(
+    ([key, value]) => {
+      console.log({ key, value });
+      return {
+        name: key,
+        value,
+      };
     }
-  })
+  );
 
-  const OptionalService = Array.from(formDetailslData.entries()).map(([key, value]) => {
-    return {
-      name: key,
-      value
-    }
-  })
+  // OPEN POP UP
+  const popUp = document.getElementById("pop-up");
+  popUp.classList.remove("is-closed");
+  popUp.classList.add("is-open");
 
+  //inject summary Info
+  const summaryServices = document.getElementById("all-services");
+  console.log("sumary", summaryServices);
+  const summaryHTML = `
+   <div class="fw-bolder mt-3">Main Service</div>
+   ${
+     OptionalService.length > 0
+       ? OptionalService.map(({ name, value }) => {
+           return "<div>" + value + "</div>";
+         })
+       : "<div> --- </div>"
+   }
+   <div class="fw-bolder mt-3">Additional Service</div>
+   ${
+     additionalService.length > 0
+       ? additionalService.map(({ name, value }) => {
+           return "<div>" + value + "</div>";
+         })
+       : "<div> --- </div>"
+   }
+   <div class="my-3">
+     <span class="fw-bolder">Total Price $US:</span> <span>${totalPrice}</span>
+   </div>
+ `;
 
-  const url = `http://localhost/wordpress/wp-json/groomNglow/booking`
-  console.log({
-    totalPrice,
-    additionalService,
-    OptionalService
-  })
-try{
-  const fetchData = await fetch(url, {
-    method: 'POST',
-    body: new URLSearchParams({
-      totalPrice,
-      additionalService,
-      OptionalService
-    }),
-   
-  });
-  const data = await fetchData.json();
-  console.log({
-      totalPrice: data.totalPrice,
-      additionalService: JSON.stringify(data.additionalService),
-      OptionalService: JSON.stringify(data.OptionalService)
-  })
-
-// OPEN POP UP
-const popUp = document.getElementById("pop-up");
-popUp.classList.remove("is-closed");
-popUp.classList.add("is-open");
-
-
-}catch(err){
-  console.log(err)
+  summaryServices.innerHTML = summaryHTML;
 }
-}
+
+

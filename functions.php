@@ -4,6 +4,7 @@ add_action('wp_enqueue_scripts', 'my_enqueue_custom_js');
 function my_enqueue_custom_js() {
     wp_enqueue_script('header-js', get_stylesheet_directory_uri().'/js/header.js', 1, true);
     wp_enqueue_script('services-js', get_stylesheet_directory_uri().'/js/services.js', 1, true);
+    wp_enqueue_script('modal-js', get_stylesheet_directory_uri().'/js/modal.js', 1, true);
 }
 
 //styles

@@ -1,27 +1,29 @@
 
-
-
-
-<div id="pop-up" class="modal is-closed" tabindex="-1" role="dialog">
+<div id="pop-up" class="modal is-closed mt-2" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title">Booking</h5>
+        <button 
+        type="button" 
+        class="close" 
+        data-dismiss="modal" 
+        aria-label="Close"  
+        id='close-btn'
+       >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <div id="all-services">
+
+        </div>
         <div class="wp-block-bookingpress-bookingpress-appointment-form">
 
-    <?php echo do_shortcode('[bookly-form]'); ?>
+    <?php echo do_shortcode('[bookly-form category_id="-1" service_id="2" hide="categories,services,staff_members"]'); ?>
 
         </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div> -->
     </div>
   </div>
 </div>
@@ -32,13 +34,3 @@
 
 
 
-
-<!-- <div class="bg-popup is-closed" id="pop-up">
-  <div class="container-popup">
-    <div class="">
-      <button>close</button>
-    </div>
-    <div>
-    </div>
-  </div>
-</div> -->
