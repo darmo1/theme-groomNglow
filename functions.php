@@ -5,6 +5,7 @@ function my_enqueue_custom_js() {
     wp_enqueue_script('header-js', get_stylesheet_directory_uri().'/js/header.js', 1, true);
     wp_enqueue_script('services-js', get_stylesheet_directory_uri().'/js/services.js', 1, true);
     wp_enqueue_script('modal-js', get_stylesheet_directory_uri().'/js/modal.js', 1, true);
+    wp_enqueue_script('index-js', get_stylesheet_directory_uri().'/js/index.js', 1, true);
 }
 
 //styles
@@ -20,11 +21,24 @@ function groomNglow_scripts_styles(){
 }
 add_action('wp_enqueue_scripts', 'groomNglow_scripts_styles');
 
+function add_custom_class_to_content($content) {
+    
+        $content = '<div class="text-normal">' . $content . '</div>';
+  
+    return $content;
+}
+add_filter('the_content', 'add_custom_class_to_content');
+
+function custom_fonts() {
+    wp_enqueue_style('fuentes-mulish', 'https://fonts.bunny.net/css?family=mulish:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i', array(), null);
+}
+add_action('wp_enqueue_scripts', 'custom_fonts');
 
 //menu-nav
 function groomNglow_menus(){
     $locations = array(
-        'menu-main' => __('Main menu','groomNglow')
+        'menu-main' => __('Main menu','groomNglow'),
+        'footer-nav' => __('Footer menu','groomNglow')
     );
     register_nav_menus($locations);
 };

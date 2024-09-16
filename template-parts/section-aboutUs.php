@@ -1,5 +1,5 @@
-<div id="about-us"class="bg bg-dog">
-<?php  
+<div class="bg bg-dog">
+    <?php  
                           $args = array(
                             'post_type' => 'section-landing-page',
                             'category_name' => 'section-4'       
@@ -9,19 +9,21 @@
                           if($section_about_us->have_posts()){
                             while($section_about_us->have_posts()){
                               $section_about_us->the_post(); ?>
-                               <?php } 
+    <?php } 
             }?>
-        <section id="landing-section" class="">
-            <div class="row" id="<?php the_permalink(); ?>">
-            
-
-            <h1 class="my-3 landing-section__heading">
+    <section id="about-us" class="section-container container-fluid">
+        <div class="row" id="<?php the_permalink(); ?>">
+            <h1 class="section__heading">
                 <?php the_title(); ?></h1>
-           
+        </div>
+        <div class="row mx-5 mx-md-0">
+            <div class="col-12 col-md-6  d-flex justify-content-center align-items-center">
+                <?php $img_url = get_field('about_image'); ?>
+                <img class="image-about-us" src="<?php echo esc_url($img_url); ?>" alt="Imagen de landing" />
             </div>
-            <div class="row d-flex justify-content-center align-items-center about-us font-weight-bold">
-                <?php  the_content(); ?>
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center my-5 text-normal">
+                <?php echo the_content(); ?>
             </div>
-        </section>
-
-    </div>
+        </div>
+    </section>
+</div>

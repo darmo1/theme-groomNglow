@@ -1,6 +1,5 @@
-
-<div id="gallery" class="bg">
-    <section id="landing-section">
+<div class="bg bg--green">
+    <section id="gallery" class="container-fluid section-container">
         <div class=" row">
             <?php  
                           $args = array(
@@ -13,14 +12,22 @@
                             while($section_gallery->have_posts()){
                               $section_gallery->the_post(); ?>
 
-            <h1 class="my-3 landing-section__heading">
+            <h1 class="section__heading">
                 <?php the_title(); ?>
             </h1>
             <?php } 
             }?>
         </div>
-        <div class="row m-auto">
+        <div class="row m-auto d-flex flex-wrap d-none d-md-block">
             <?php the_content();?>
+        </div>
+
+        <div class="d-block d-md-none position-relative ">
+            <?php 
+          if (class_exists('SmartSlider3')) {
+            echo do_shortcode('[smartslider3 slider="2"]');
+                        } 
+          ?>
         </div>
     </section>
 </div>

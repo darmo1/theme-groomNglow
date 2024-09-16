@@ -20,7 +20,8 @@
         </div>
         <div class="wp-block-bookingpress-bookingpress-appointment-form">
 
-    <?php echo do_shortcode('[bookly-form category_id="-1" service_id="2" hide="categories,services,staff_members"]'); ?>
+    
+    <?php echo do_shortcode('[bookingpress_form]'); ?>
 
         </div>
       </div>

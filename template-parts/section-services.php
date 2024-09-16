@@ -1,5 +1,11 @@
-<div id="services" class="bg bg-dog">
-  <section id="landing-section" class="container-fluid">
+<div class="bg bg--green position-relative min-h-400">
+    <image src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Group 57.svg'); ?>"
+        class="position-absolute top-0 end-0 transform-Y-middle opacity-40" />
+
+    <image src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Group 58.svg'); ?>"
+        class="position-absolute bottom-0 start-0 transform-Y-30 opacity-40" />
+
+    <section id="book-appointment" class="container-fluid section-container">
         <div class="row">
             <?php  
                           $args = array(
@@ -12,41 +18,18 @@
                             while($section_services->have_posts()){
                               $section_services->the_post(); ?>
 
-            <h1 class="my-3 landing-section__heading">
-                <?php the_title(); ?></h1>
+            <h1 class="section__heading text-break">
+                <?php the_title(); ?>
+            </h1>
             <?php } 
             }?>
         </div>
-            <div class=" row">
-                <div class="col d-flex flex-column justify-content-center align-items-center border card py-5 container-cards">
-        <?php 
-          $args = array(
-          'post_type' => 'services'      
-          );
-          $services = new WP_Query($args);
-          if($services->have_posts()){
-          while($services->have_posts()){
-              $services->the_post(); 
-        ?>
-        <?php get_template_part('template-parts/service', 'details');              
-        }}?>
-              <div class="custom-services">
-                <?php get_template_part('template-parts/service', 'additional');  ?>
-              </div>
-              <div>
-                <span>TOTAL PRICE: $</span>
-                <span class="total-price">0</span>
-              </div>
-                </div>
-               
-                <div class="col">
-                  <?php get_template_part('template-parts/service', 'options'); ?>
+        <div class="row col-md-10 offset-md-2 mx-3">
 
-                  <button onclick="sendForm()" >BOOK NOW</button>
-                </div>
-            </div>
-  </section>
+            <?php  the_content(); ?>
+        </div>
+
+    </section>
 </div>
 
 <?php get_template_part('template-parts/section', 'popUp'); ?>
-
