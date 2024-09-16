@@ -1,9 +1,7 @@
-console.log("index.js");
 const threshold = 0.5;
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav li");
-  console.log({ sections, navLinks });
 
   const observer = new IntersectionObserver(
     (entries) => {

@@ -96,8 +96,6 @@ function totalPriceService(priceOptionsService, priceAdditionalService) {
   document.querySelector(".total-price").innerHTML = total;
 }
 
-
-
 async function sendForm() {
   const formDetails = document.getElementById("form-details");
   const formDetailslData = new FormData(formDetails);
@@ -114,7 +112,6 @@ async function sendForm() {
   const formAdditionalData = new FormData(formAdditional);
   const additionalService = Array.from(formAdditionalData.entries()).map(
     ([key, value]) => {
-      console.log({ key, value });
       return {
         name: key,
         value,
@@ -129,7 +126,6 @@ async function sendForm() {
 
   //inject summary Info
   const summaryServices = document.getElementById("all-services");
-  console.log("sumary", summaryServices);
   const summaryHTML = `
    <div class="fw-bolder mt-3">Main Service</div>
    ${
@@ -154,5 +150,3 @@ async function sendForm() {
 
   summaryServices.innerHTML = summaryHTML;
 }
-
-
